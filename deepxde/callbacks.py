@@ -303,6 +303,7 @@ class VariableValue(Callback):
             self.value = [var.numpy() for var in self.var_list]
         elif backend_name == "pytorch":
             self.value = [var.detach().item() for var in self.var_list]
+        print(list_to_str(self.value, precision=self.precision))
         print(
             self.model.train_state.epoch,
             list_to_str(self.value, precision=self.precision),
